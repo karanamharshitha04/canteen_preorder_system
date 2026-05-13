@@ -1,0 +1,36 @@
+.cart-container {
+  padding: 40px;
+  background-color: #f4c542;
+  min-height: 100vh;
+}
+
+.cart-title {
+  font-size: 40px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.cart-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.total-price {
+  margin-top: 30px;
+  font-size: 32px;
+  font-weight: bold;
+}
