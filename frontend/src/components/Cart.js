@@ -13,7 +13,6 @@ function Cart() {
     setCartItems(storedCart);
 
   }, []);
-
   const removeItem = (index) => {
 
     const updatedCart = cartItems.filter(
