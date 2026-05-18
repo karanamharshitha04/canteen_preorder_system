@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import "./Register.css";
 
 function Register() {
 
@@ -43,10 +44,9 @@ function Register() {
 
   return (
 
-      <div className="container mt-5 card">
+      <div className="register-container">
 
-      <div className="card p-4 shadow">
-
+      <div className="register-card">
         <h2 className="text-center mb-4">
           User Registration
         </h2>

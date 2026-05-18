@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./Login.css";
 
 function Login() {
 
@@ -60,9 +61,9 @@ function Login() {
 
   return (
 
-    <div className="container mt-5 card">
+    <div className="login-container">
 
-      <div className="card p-4 shadow">
+      <div className="login-card">
 
         <h2 className="text-center mb-4">
           Login
