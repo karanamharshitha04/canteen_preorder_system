@@ -13,6 +13,8 @@ function Cart() {
     setCartItems(storedCart);
 
   }, []);
+
+  // REMOVE ITEM
   const removeItem = (index) => {
 
     const updatedCart = cartItems.filter(
@@ -27,12 +29,25 @@ function Cart() {
     );
   };
 
+  // TOTAL PRICE
   const totalPrice = cartItems.reduce(
     (total, item) => total + Number(item.price),
     0
   );
 
+  // PAYMENT PAGE
+  const goToPayment = () => {
+
+    if (cartItems.length === 0) {
+      alert("Cart is empty");
+      return;
+    }
+
+    window.location.href = "/payment";
+  };
+
   return (
+
     <div className="cart-container">
 
       <h1 className="cart-title">
@@ -46,16 +61,19 @@ function Cart() {
       ) : (
 
         <>
+
           {cartItems.map((item, index) => (
 
             <div className="cart-card" key={index}>
 
               <div>
+
                 <h3>{item.food_name}</h3>
 
                 <p>{item.subcategory}</p>
 
                 <h4>₹ {item.price}</h4>
+
               </div>
 
               <button
@@ -72,6 +90,14 @@ function Cart() {
           <h2 className="total-price">
             Total : ₹ {totalPrice}
           </h2>
+
+          <button
+            className="payment-btn"
+            onClick={goToPayment}
+          >
+            Proceed To Payment
+          </button>
+
         </>
 
       )}

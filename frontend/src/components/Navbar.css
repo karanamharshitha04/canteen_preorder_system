@@ -47,3 +47,48 @@
 .nav-hover:hover{
   transform: scale(1.1);
 }
+
+.logout-btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #ffc107;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: orange;
+  transform: scale(1.05);
+}
+
+.profile-circle {
+  width: 40px;
+  height: 40px;
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.email-text {
+  color: white;
+  margin-left: 10px;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.logout-btn {
+  margin-left: 15px;
+  border: none;
+  background-color: red;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+}

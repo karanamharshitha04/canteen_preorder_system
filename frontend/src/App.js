@@ -10,7 +10,8 @@ import Cart from './components/Cart';
 import Orders from './components/Orders';
 import AdminDashboard from './components/AdminDashboard';
 import Home from './components/Home';
-
+import Payment from './components/Payment';
+import PaymentResult from './components/PaymentResult';
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +26,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment-result" element={<PaymentResult />} />
         
 
       </Routes>

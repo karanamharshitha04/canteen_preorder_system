@@ -38,7 +38,7 @@
 }
 
 body{
-    background-image: url('./assets/canteen.jpg');
+    background-image: url('./assets/plain.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -94,7 +94,7 @@ body{
     transition: 0.3s;
 }
 .home-container{
-    background-image: url('./assets/canteen.jpg');
+    background-image: url('./assets/plain.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;

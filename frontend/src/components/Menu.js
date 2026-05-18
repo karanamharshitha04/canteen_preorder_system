@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Menu.css";
+import { useNavigate } from "react-router-dom";
 
 function Menu() {
 
   const [foods, setFoods] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [cart, setCart] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -53,17 +55,18 @@ function Menu() {
   
   const addToCart = (food) => {
 
-    const updatedCart = [...cart, food];
+  const updatedCart = [...cart, food];
 
-    setCart(updatedCart);
+  setCart(updatedCart);
 
-    localStorage.setItem(
-      "cart",
-      JSON.stringify(updatedCart)
-    );
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(updatedCart)
+  );
 
-    alert(`${food.food_name} added to cart`);
-  };
+  // REDIRECT TO CART PAGE
+  navigate("/cart");
+};
 
   
   const getFoodImage = (foodName) => {

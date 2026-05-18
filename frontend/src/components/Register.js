@@ -1,31 +1,45 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function Register() {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const registerUser = async () => {
 
-    try {
+  try {
 
-      const res = await axios.post('http://localhost:5000/register', {
+    await axios.post(
+      "http://localhost:5000/register",
+      {
         name,
         email,
         password
-      });
+      }
+    );
 
-      alert(res.data.message);
+    // REDIRECT TO LOGIN
+    navigate("/login");
 
-    } catch (error) {
+  } catch (error) {
 
-      alert('Registration Failed');
+    if (error.response) {
+
+      alert(error.response.data.message);
+
+    } else {
+
+      alert("Server Error");
 
     }
 
-  };
+  }
+
+};
 
   return (
 
