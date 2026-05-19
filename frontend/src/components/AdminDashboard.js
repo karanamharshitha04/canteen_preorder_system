@@ -14,6 +14,21 @@ function AdminDashboard() {
 
   }, []);
 
+  // MARK AS DELIVERED
+  const markDelivered = (index) => {
+
+    const updatedOrders = [...orders];
+
+    updatedOrders[index].status = "Delivered";
+
+    setOrders(updatedOrders);
+
+    localStorage.setItem(
+      "orders",
+      JSON.stringify(updatedOrders)
+    );
+  };
+
   return (
 
     <div className="admin-container">
@@ -22,63 +37,90 @@ function AdminDashboard() {
         Admin Dashboard
       </h1>
 
-      {orders.length === 0 ? (
+      <div className="orders-grid">
 
-        <h3>No Orders</h3>
+        {orders.length === 0 ? (
 
-      ) : (
+          <h3>No Orders</h3>
 
-        orders.map((order, index) => (
+        ) : (
 
-          <div className="admin-card" key={index}>
+          orders.map((order, index) => (
 
-            <h3>
-              Customer :
-              {" "}
-              {order.user}
-            </h3>
+            <div
+              className="admin-card"
+              key={index}
+            >
 
-            <p>
-              Payment :
-              {" "}
-              {order.payment}
-            </p>
+              <h3>
+                Customer :
+                {" "}
+                {order.user}
+              </h3>
 
-            <p>
-              Time Slot :
-              {" "}
-              {order.timeSlot}
-            </p>
+              <p>
+                Payment :
+                {" "}
+                {order.payment}
+              </p>
 
-            <p>
-              Status :
-              {" "}
-              {order.status}
-            </p>
+              <p>
+                Time Slot :
+                {" "}
+                {order.timeSlot}
+              </p>
 
-            <hr />
+              <p>
+                Status :
+                {" "}
+                <strong>
+                  {order.status}
+                </strong>
+              </p>
 
-            {order.items.map((item, i) => (
+              <hr />
 
-              <div key={i}>
+              {order.items.map((item, i) => (
 
-                <h4>
-                  {item.food_name}
-                </h4>
+                <div
+                  className="admin-item"
+                  key={i}
+                >
 
-                <p>
-                  ₹ {item.price}
-                </p>
+                  <h4>
+                    {item.food_name}
+                  </h4>
 
-              </div>
+                  <p>
+                    ₹ {item.price}
+                  </p>
 
-            ))}
+                </div>
 
-          </div>
+              ))}
 
-        ))
+              {/* DELIVER BUTTON */}
 
-      )}
+              {order.status !== "Delivered" && (
+
+                <button
+                  className="deliver-btn"
+                  onClick={() =>
+                    markDelivered(index)
+                  }
+                >
+                  Mark As Delivered
+                </button>
+
+              )}
+
+            </div>
+
+          ))
+
+        )}
+
+      </div>
 
     </div>
   );

@@ -31,20 +31,10 @@ function Cart() {
 
   // TOTAL PRICE
   const totalPrice = cartItems.reduce(
-    (total, item) => total + Number(item.price),
+    (total, item) =>
+      total + Number(item.price),
     0
   );
-
-  // PAYMENT PAGE
-  const goToPayment = () => {
-
-    if (cartItems.length === 0) {
-      alert("Cart is empty");
-      return;
-    }
-
-    window.location.href = "/payment";
-  };
 
   return (
 
@@ -62,38 +52,51 @@ function Cart() {
 
         <>
 
-          {cartItems.map((item, index) => (
+          {/* CART ITEMS */}
+          <div className="cart-items">
 
-            <div className="cart-card" key={index}>
+            {cartItems.map((item, index) => (
 
-              <div>
+              <div
+                className="cart-card"
+                key={index}
+              >
 
                 <h3>{item.food_name}</h3>
 
                 <p>{item.subcategory}</p>
 
-                <h4>₹ {item.price}</h4>
+                <h4>
+                  ₹ {item.price}
+                </h4>
+
+                <button
+                  className="remove-btn"
+                  onClick={() =>
+                    removeItem(index)
+                  }
+                >
+                  Remove
+                </button>
 
               </div>
 
-              <button
-                className="remove-btn"
-                onClick={() => removeItem(index)}
-              >
-                Remove
-              </button>
+            ))}
 
-            </div>
+          </div>
 
-          ))}
-
+          {/* TOTAL PRICE */}
           <h2 className="total-price">
-            Total : ₹ {totalPrice}
+            Total Price : ₹ {totalPrice}
           </h2>
 
+          {/* PAYMENT BUTTON */}
           <button
             className="payment-btn"
-            onClick={goToPayment}
+            onClick={() =>
+              window.location.href =
+                "/payment"
+            }
           >
             Proceed To Payment
           </button>
@@ -103,6 +106,7 @@ function Cart() {
       )}
 
     </div>
+
   );
 }
 
